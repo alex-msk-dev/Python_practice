@@ -1,7 +1,11 @@
 # Countdown to my birthday
-import datetime
+from datetime import datetime
 
-now = datetime.datetime.today() #Cегодняшний день
-birthday_date = datetime.datetime(2021, 8, 6) #Дата дня рождения
+now = datetime.today() #Cегодняшний день
+birth_month = 8
+birth_day = 6
+birthday_date = datetime(now.year, birth_month, birth_day) #Дата дня рождения
+if (birthday_date < now):
+	birthday_date = datetime(now.year + 1, birth_month, birth_day)
 timedelta_for_birthday = birthday_date - now #Для подсчёта дней нужно отнять от даты дня рождения, сегодняшнюю дату
 print('До дня рождения: {} дня/дней.'.format(timedelta_for_birthday.days)) #Вывод колличества дней
