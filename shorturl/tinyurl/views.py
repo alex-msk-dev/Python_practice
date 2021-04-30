@@ -1,8 +1,8 @@
-from django.shortcuts import render
 from django.http import HttpRequest, HttpResponse
-from django.template import loader
+from django.shortcuts import render
+from .full_url_form import  FullUrlFrom
 # Create your views here.
 
 def index(request: HttpRequest):
-    template = loader.get_template('dr.html')
-    return HttpResponse(template.render())
+    full_url_form = FullUrlFrom()
+    return render(request, 'dr.html',{'url_form': full_url_form})

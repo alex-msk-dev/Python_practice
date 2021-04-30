@@ -4,11 +4,9 @@
   </head>
   <body>
   <h1>Сократите свой URL</h1>
-<form>
-	<p>
-		Введите ваш URL
-		<input type="url" name="name">
-	</p>
+<form action="/s/" method="post">
+    {% csrf_token %}
+    {{ url_form }}
 <button type="submit">Отправить</button></fieldset></div>
   </form>
   </body>
