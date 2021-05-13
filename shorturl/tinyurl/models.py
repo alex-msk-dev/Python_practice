@@ -1,3 +1,5 @@
 from django.db import models
 
-# Create your models here.
+class ShortUrl(models.Model):
+    hash = models.CharField(max_length=32)
+    url = models.TextField()

@@ -6,6 +6,8 @@ from .storage import shorts
 def full_url(request: HttpRequest, key):
     try:
         url = shorts[key]
-        return HttpResponseRedirect(url)
+        if url.startswith('http'):
+            return HttpResponseRedirect(url)
+        return HttpResponseRedirect(f'http://{url}')
     except KeyError:
         return HttpResponseNotFound()
